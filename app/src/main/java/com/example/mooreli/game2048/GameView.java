@@ -431,10 +431,6 @@ public class GameView extends View {
                 }
             }
             for (int i = 0; i < mAllNumbers.length - 4; i++) {
-                //如果每一列第一个，则跳过
-                if (i / 4 == 0) {
-                    continue;
-                }
                 //纵向  如果找到一个相邻的值相同，则不结束
                 if (mAllNumbers[i].getmValue() == mAllNumbers[i + 4].getmValue()) {
                     isVerticalEnd = false;
