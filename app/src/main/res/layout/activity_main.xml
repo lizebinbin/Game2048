@@ -15,43 +15,136 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="分数："
-            android:textSize="18sp" />
+            android:layout_weight="1"
+            android:text="2048"
+            android:textSize="45sp"
+            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/Main_tvScore"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textColor="#FF4081"
-            android:textSize="30sp" />
+            android:layout_weight="1.2"
+            android:gravity="right">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/game_view_bg"
+                android:gravity="center"
+                android:minHeight="60dp"
+                android:minWidth="60dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SCORE"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvCurrentScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/game_view_bg"
+                android:gravity="center"
+                android:minHeight="60dp"
+                android:minWidth="100dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HIGH SCORE"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvHighScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
-    <com.example.mooreli.game2048.GameView
-        android:id="@+id/Main_gameView"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="5dp"
-        android:paddingLeft="8dp"
-        android:background="@drawable/game_view_bg" />
-
     <TextView
-        android:id="@+id/Main_rePlay"
+        android:id="@+id/tvReplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:padding="15dp"
-        android:text="重新开始"
-        android:textSize="18sp" />
+        android:layout_gravity="right"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/game_view_bg"
+        android:drawableLeft="@drawable/replay"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Replay"
+        android:textColor="@color/white" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp">
+
+        <com.example.mooreli.game2048.GameView
+            android:id="@+id/Main_gameView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/game_view_bg"
+            android:paddingBottom="5dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp" />
+
+        <com.example.mooreli.game2048.GameOverLinearLayout
+            android:id="@+id/llGameOver"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#afCDC9C9"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="GAME OVER"
+                android:textSize="42sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvGameOverPlayAgain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Play Again"
+                android:textSize="22sp" />
+        </com.example.mooreli.game2048.GameOverLinearLayout>
+
+    </RelativeLayout>
 </LinearLayout>

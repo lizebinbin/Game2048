@@ -490,7 +490,10 @@ public class GameView extends View {
                 canvas.drawRect(number.getmLocationX() + padding, number.getmLocationY() + padding, number.getmLocationX() + mUnit - padding, number.getmLocationY() + mUnit - padding, mPaintBlock);
             }
             //绘制数字
+            if(number.getmValue() > 4)
             mPaintNumber.setColor(Color.parseColor("#FCFCFC"));
+            else
+                mPaintNumber.setColor(Color.parseColor("#999999"));
             String value = number.getmValue() + "";
             mPaintNumber.getTextBounds(value, 0, value.length(), mRect);
             int x = number.getmLocationX() + mUnit / 2 - mRect.width() / 2;
@@ -513,7 +516,9 @@ public class GameView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
+        mWidth = MeasureSpec.getSize(widthMeasureSpec);
+        mHeight = mWidth;
+        setMeasuredDimension(mWidth,mHeight);
     }
 
     /**
